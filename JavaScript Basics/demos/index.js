@@ -75,6 +75,6 @@ async function getApplications() {
 
 async function postApplication() {
     const newApplication = mapApplicationFromHtml();
-    await fetch('api/applications', { method: 'POST', data: JSON.stringify(newApplication) });
+    await fetch('api/applications', { method: 'POST', body: JSON.stringify(newApplication) });
     console.log('SAVE: ', newApplication);
 }
