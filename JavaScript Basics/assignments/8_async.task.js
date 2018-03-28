@@ -14,11 +14,8 @@ class Application {
     }
 }
 
-async function getApplications() {
+async function getApplicationsStatus() {
     const data = await fetch('api/applications', { method: 'GET' });
 
-    return JSON.parse(data).map(application => new Application({
-        ...application,
-        skills: application.skills.map(skill => new Skill(skill))
-    }));
+    return data.status;
 }

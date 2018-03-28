@@ -26,14 +26,13 @@ class Application {
 }
 
 function getTopApplications(applications) {
-    const topApplications = applications
+    return applications
         .filter(application => application.skills.length > 2)
         .map(application => ({
             fullName: application.fullName,
             grade: application.grade()
-        }));
-    topApplications.sort((left, right) => left.grade > right.grade ? -1 : 1);
-    return topApplications;
+        }))
+        .sort((left, right) => left.grade > right.grade ? -1 : 1);
 }
 
 const applications = [
