@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid black;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container p-5">
+        <!-- Error alert -->
+        <div class="alert alert-danger" role="alert">
+            Oops, something wrong happened! Please try again later.
+        </div>
+        <h2 class="pb-4">My todo list</h2>
+
+        <!-- Loader -->
+        <div class="loader mx-auto mb-4"></div>
+
+        <!-- Filter box -->
+        <div class="pb-2">
+            <input type="text" placeholder="Filter todo items" class="form-control" />
+        </div>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>
+                        <h6>Drop out of college. Start a multi-billion dollar company </h6>
+                    </td>
+                    <td>
+                        <button class="btn btn-dark btn-sm float-right">
+                            <i class="oi oi-minus"></i>
+                        </button>
+                        <button class="btn btn-dark btn-sm mr-2 float-right">
+                            <i class="oi oi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Find a burger that actually looks like the one in the commercial</h6>
+                    </td>
+                    <td>
+                        <button class="btn btn-dark btn-sm float-right">
+                            <i class="oi oi-minus"></i>
+                        </button>
+                        <button class="btn btn-dark btn-sm mr-2 float-right">
+                            <i class="oi oi-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h6>Shoot the deputy as well</h6>
+                    </td>
+                    <td>
+                        <button class="btn btn-dark btn-sm float-right">
+                            <i class="oi oi-check"></i>
+                        </button>
+                        <button class="btn btn-dark btn-sm mr-2 float-right">
+                            <i class="oi oi-trash"></i>
+                        </button>
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="pb-2">
+            <div class="row">
+                <div class="col">
+                    <input type="text" placeholder="" class="form-control" />
+                </div>
+                <div class="col">
+                    <button class="btn btn-dark"> Add Todo</button>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="float-right mt-5">
+            <h6>Axilis JavaScript School © 2018</h6>
+        </div>
+    </div>
+</body>
+
+</html>
