@@ -6,7 +6,7 @@ class AddTodo extends Component {
 			<div className="pb-2">
 				<div className="row">
 					<div className="col">
-						<input type="text" placeholder="" className="form-control" />
+						<input value={this.props.inputText} type="text" placeholder="" className="form-control" />
 					</div>
 					<div className="col">
 						<button className="btn btn-dark"> Add Todo</button>

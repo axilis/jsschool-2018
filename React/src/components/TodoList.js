@@ -5,7 +5,12 @@ class TodoList extends Component {
 		return (
 			<div>
 				<div className="pb-2">
-					<input type="text" placeholder="Filter todos" className="form-control" />
+					<input
+						value={this.props.filterText}
+						type="text"
+						placeholder="Filter todos"
+						className="form-control"
+					/>
 				</div>
 				<table className="table table-hover">
 					<tbody>

@@ -10,12 +10,12 @@ class App extends Component {
 	render() {
 		return (
 			<div className="container p-5">
-				<ErrorBox />
-				<Header />
-				<Loader />
-				<TodoList />
-				<AddTodo />
-				<Footer />
+				<ErrorBox active={this.props.hasError} />
+				<Header text="My Todo List" />
+				<Loader active={this.props.isLoading} />
+				<TodoList todos={this.props.todos} filterText={this.props.filterText} />
+				<AddTodo inputText={this.props.addText} />
+				<Footer label="Axilis JavaScript School" />
 			</div>
 		);
 	}
