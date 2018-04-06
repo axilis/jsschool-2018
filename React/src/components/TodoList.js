@@ -13,11 +13,7 @@ class TodoList extends Component {
 					/>
 				</div>
 				<table className="table table-hover">
-					<tbody>
-						<Todo />
-						<Todo />
-						<Todo />
-					</tbody>
+					<tbody>{this.props.todos.map((t) => <Todo key={t.id} {...t} />)}</tbody>
 				</table>
 			</div>
 		);
