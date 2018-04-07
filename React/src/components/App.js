@@ -18,6 +18,7 @@ class App extends Component {
 						<TodoList
 							todos={this.props.todos}
 							filterText={this.props.filterText}
+							onFilterTextChanged={this.props.onFilterTextChanged}
 							handleIsDoneToggle={this.props.handleIsDoneToggle}
 							handleTrashClicked={this.props.handleTrashClicked}
 						/>

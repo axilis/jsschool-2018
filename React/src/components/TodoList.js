@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import Todo from './Todo';
 class TodoList extends Component {
+	onInputChanged = (e) => {
+		this.props.onFilterTextChanged(e.target.value);
+	};
+
 	render() {
 		return (
 			<div>
 				<div className="pb-2">
 					<input
+						onChange={this.onInputChanged}
 						value={this.props.filterText}
 						type="text"
 						placeholder="Filter todos"

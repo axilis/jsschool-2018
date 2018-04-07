@@ -27,6 +27,12 @@ class AppContainer extends Component {
 		});
 	};
 
+	onFilterTextChanged = (text) => {
+		this.setState({
+			filterText: text
+		});
+	};
+
 	handleTrashClicked = (todoId) => {
 		this.setState({
 			todos: this.state.todos.filter((t) => t.id !== todoId)
@@ -47,6 +53,13 @@ class AppContainer extends Component {
 		}
 	}
 
+	filter = (todos, filter) => {
+		if (filter && filter.trim().length > 0) {
+			return todos.filter((t) => t.text.indexOf(filter) > -1);
+		}
+		return todos;
+	};
+
 	render() {
 		return (
 			<App
@@ -54,9 +67,10 @@ class AppContainer extends Component {
 				addText={this.state.addText}
 				isLoading={this.state.isLoading}
 				hasError={this.state.hasError}
-				todos={this.state.todos}
+				todos={this.filter(this.state.todos, this.state.filterText)}
 				handleIsDoneToggle={this.handleIsDoneToggle}
 				handleTrashClicked={this.handleTrashClicked}
+				onFilterTextChanged={this.onFilterTextChanged}
 			/>
 		);
 	}
