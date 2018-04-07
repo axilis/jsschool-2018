@@ -1,27 +1,57 @@
 import React, { Component } from 'react';
 import App from '../components/App';
-
-const dummyList = [
-	{
-		id: '0a64f4ee-6c1e-4a57-82da-b313b4953098',
-		isDone: true,
-		text: 'Push slinky down an escalator.'
-	},
-	{
-		id: '7545b20f-46ad-41d1-b2ce-d74f20ab6a41',
-		isDone: false,
-		text: 'Find a burger that actually looks like the one in the commercial.'
-	},
-	{
-		id: 'd8434dc5-464a-43a1-ba01-20c57aa5bf42',
-		isDone: false,
-		text: 'Drop out of college. Start a multi-billion dollar company.'
-	}
-];
+import axios from 'axios';
 
 class AppContainer extends Component {
+	constructor() {
+		super();
+
+		this.state = {
+			filterText: '',
+			addText: '',
+			isLoading: false,
+			hasError: false,
+			todos: []
+		};
+	}
+
+	handleIsDoneToggle = async (todoId, isDone) => {
+		this.setState({
+			todos: this.state.todos.map((todo) => {
+				if (todo.id === todoId) {
+					return { ...todo, isDone: isDone };
+				} else {
+					return todo;
+				}
+			})
+		});
+	};
+
+	async componentDidMount() {
+		this.setState({ isLoading: true });
+		try {
+			let resp = await axios.get('https://react.axilis.com/pero/todos');
+			this.setState({
+				todos: resp.data
+			});
+		} catch (err) {
+			this.setState({ hasError: true });
+		} finally {
+			this.setState({ isLoading: false });
+		}
+	}
+
 	render() {
-		return <App filterText="" addText="" isLoading={false} hasError={false} todos={dummyList} />;
+		return (
+			<App
+				filterText={this.state.filterText}
+				addText={this.state.addText}
+				isLoading={this.state.isLoading}
+				hasError={this.state.hasError}
+				todos={this.state.todos}
+				handleIsDoneToggle={this.handleIsDoneToggle}
+			/>
+		);
 	}
 }
 

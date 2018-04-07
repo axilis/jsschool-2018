@@ -13,7 +13,16 @@ class TodoList extends Component {
 					/>
 				</div>
 				<table className="table table-hover">
-					<tbody>{this.props.todos.map((t) => <Todo key={t.id} {...t} />)}</tbody>
+					<tbody>
+						{this.props.todos.length <= 0 && (
+							<tr>
+								<td>Nothing on your schedule. Nice job!</td>
+							</tr>
+						)}
+						{this.props.todos.map((t) => (
+							<Todo key={t.id} {...t} handleIsDoneToggle={this.props.handleIsDoneToggle} />
+						))}
+					</tbody>
 				</table>
 			</div>
 		);

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 
 class Todo extends Component {
+	onIsDoneClick = () => {
+		this.props.handleIsDoneToggle(this.props.id, !this.props.isDone);
+	};
+
 	render() {
 		const { id, text, isDone } = this.props;
 		return (
@@ -9,7 +13,7 @@ class Todo extends Component {
 					<h6>{text}</h6>
 				</td>
 				<td>
-					<button className="btn btn-dark btn-sm float-right">
+					<button onClick={this.onIsDoneClick} className="btn btn-dark btn-sm float-right">
 						<i className={'oi ' + (isDone ? 'oi-check' : 'oi-minus')} />
 					</button>
 					<button className="btn btn-dark btn-sm mr-2 float-right">

@@ -13,8 +13,17 @@ class App extends Component {
 				<ErrorBox active={this.props.hasError} />
 				<Header text="My Todo List" />
 				<Loader active={this.props.isLoading} />
-				<TodoList todos={this.props.todos} filterText={this.props.filterText} />
-				<AddTodo inputText={this.props.addText} />
+				{!this.props.isLoading && (
+					<div>
+						<TodoList
+							todos={this.props.todos}
+							filterText={this.props.filterText}
+							handleIsDoneToggle={this.props.handleIsDoneToggle}
+						/>
+						<AddTodo inputText={this.props.addText} />
+					</div>
+				)}
+
 				<Footer label="Axilis JavaScript School" />
 			</div>
 		);
