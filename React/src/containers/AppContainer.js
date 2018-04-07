@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import App from '../components/App';
 import axios from 'axios';
+import uuid from 'uuid';
 
 class AppContainer extends Component {
 	constructor() {
@@ -33,7 +34,24 @@ class AppContainer extends Component {
 		});
 	};
 
-	handleTrashClicked = (todoId) => {
+	onAddTextChanged = (text) => {
+		this.setState({
+			addText: text
+		});
+	};
+
+	handleAddButtonClick = () => {
+		if (this.state.addText.trim().length < 0) {
+			return;
+		}
+		this.setState({
+			addText: '',
+			filterText: '',
+			todos: [...this.state.todos, { id: uuid(), text: this.state.addText, isDone: false }]
+		});
+	};
+
+	handleTrashClicked = async (todoId) => {
 		this.setState({
 			todos: this.state.todos.filter((t) => t.id !== todoId)
 		});
@@ -71,6 +89,8 @@ class AppContainer extends Component {
 				handleIsDoneToggle={this.handleIsDoneToggle}
 				handleTrashClicked={this.handleTrashClicked}
 				onFilterTextChanged={this.onFilterTextChanged}
+				onAddTextChanged={this.onAddTextChanged}
+				handleAddButtonClick={this.handleAddButtonClick}
 			/>
 		);
 	}

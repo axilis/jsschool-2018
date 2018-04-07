@@ -22,7 +22,11 @@ class App extends Component {
 							handleIsDoneToggle={this.props.handleIsDoneToggle}
 							handleTrashClicked={this.props.handleTrashClicked}
 						/>
-						<AddTodo inputText={this.props.addText} />
+						<AddTodo
+							inputText={this.props.addText}
+							handleAddButtonClick={this.props.handleAddButtonClick}
+							onAddTextChanged={this.props.onAddTextChanged}
+						/>
 					</div>
 				)}
 
