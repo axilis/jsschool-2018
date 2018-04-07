@@ -5,6 +5,10 @@ class Todo extends Component {
 		this.props.handleIsDoneToggle(this.props.id, !this.props.isDone);
 	};
 
+	onTrashClicked = () => {
+		this.props.handleTrashClicked(this.props.id);
+	};
+
 	render() {
 		const { id, text, isDone } = this.props;
 		return (
@@ -16,7 +20,7 @@ class Todo extends Component {
 					<button onClick={this.onIsDoneClick} className="btn btn-dark btn-sm float-right">
 						<i className={'oi ' + (isDone ? 'oi-check' : 'oi-minus')} />
 					</button>
-					<button className="btn btn-dark btn-sm mr-2 float-right">
+					<button onClick={this.onTrashClicked} className="btn btn-dark btn-sm mr-2 float-right">
 						<i className="oi oi-trash" />
 					</button>
 				</td>

@@ -20,7 +20,12 @@ class TodoList extends Component {
 							</tr>
 						)}
 						{this.props.todos.map((t) => (
-							<Todo key={t.id} {...t} handleIsDoneToggle={this.props.handleIsDoneToggle} />
+							<Todo
+								key={t.id}
+								{...t}
+								handleIsDoneToggle={this.props.handleIsDoneToggle}
+								handleTrashClicked={this.props.handleTrashClicked}
+							/>
 						))}
 					</tbody>
 				</table>

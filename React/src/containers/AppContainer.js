@@ -15,7 +15,7 @@ class AppContainer extends Component {
 		};
 	}
 
-	handleIsDoneToggle = async (todoId, isDone) => {
+	handleIsDoneToggle = (todoId, isDone) => {
 		this.setState({
 			todos: this.state.todos.map((todo) => {
 				if (todo.id === todoId) {
@@ -24,6 +24,12 @@ class AppContainer extends Component {
 					return todo;
 				}
 			})
+		});
+	};
+
+	handleTrashClicked = (todoId) => {
+		this.setState({
+			todos: this.state.todos.filter((t) => t.id !== todoId)
 		});
 	};
 
@@ -50,6 +56,7 @@ class AppContainer extends Component {
 				hasError={this.state.hasError}
 				todos={this.state.todos}
 				handleIsDoneToggle={this.handleIsDoneToggle}
+				handleTrashClicked={this.handleTrashClicked}
 			/>
 		);
 	}

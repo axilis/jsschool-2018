@@ -19,6 +19,7 @@ class App extends Component {
 							todos={this.props.todos}
 							filterText={this.props.filterText}
 							handleIsDoneToggle={this.props.handleIsDoneToggle}
+							handleTrashClicked={this.props.handleTrashClicked}
 						/>
 						<AddTodo inputText={this.props.addText} />
 					</div>
